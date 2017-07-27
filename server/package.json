@@ -3,7 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": "8.2.1",
+    "npm": "5.3.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "deploy": "git push origin master && git push heroku master && heroku open",
+    "prettier": "prettier --single-quote --print-width 80 --trailing-comma all --write 'src/**/*.js'"
+  },
   "dependencies": {
     "express": "^4.15.3"
+  },
+  "devDependencies": {
+    "prettier": "^1.5.3"
   }
 }
