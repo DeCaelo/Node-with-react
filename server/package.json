@@ -9,9 +9,11 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "server": "nodemon src/index.js",
     "deploy": "git push origin master && git push heroku master && heroku open",
-    "prettier": "prettier --single-quote --print-width 80 --trailing-comma all --write 'src/**/*.js'"
+    "prettier": "prettier --single-quote --print-width 80 --trailing-comma all --write 'src/**/*.js'",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
     "cookie-session": "^2.0.0-beta.2",
@@ -21,6 +23,7 @@
     "passport-google-oauth20": "^1.0.0"
   },
   "devDependencies": {
+    "concurrently": "^3.5.0",
     "nodemon": "^1.11.0",
     "prettier": "^1.5.3"
   }
