@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 const button = {
-  margin: "10px",
+  margin: '10px',
 };
 
 class Header extends Component {
@@ -14,7 +14,13 @@ class Header extends Component {
           </div>
           <div class="collapse navbar-collapse">
             <ul className="nav navbar-nav navbar-right">
-              <button type="button" className="btn btn-default navbar-btn" style={button}>Login With Google</button>
+              <button
+                type="button"
+                className="btn btn-default navbar-btn"
+                style={button}
+              >
+                Login With Google
+              </button>
             </ul>
           </div>
         </div>
