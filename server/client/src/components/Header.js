@@ -6,8 +6,18 @@ const button = {
 };
 
 class Header extends Component {
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return 'Still deciding';
+      case false:
+        return 'im logged out';
+      default:
+        return 'im logged in';
+    }
+  }
+
   render() {
-    console.log(this.props);
     return (
       <nav className="navbar navbar-default">
         <div className="container-fluid">
@@ -21,7 +31,7 @@ class Header extends Component {
                 className="btn btn-default navbar-btn"
                 style={button}
               >
-                Login With Google
+                {this.renderContent()}
               </button>
             </ul>
           </div>
