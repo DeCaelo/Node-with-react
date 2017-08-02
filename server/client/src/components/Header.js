@@ -12,7 +12,7 @@ class Header extends Component {
           <div className="navbar-header">
             <a className="navbar-brand">Emaily</a>
           </div>
-          <div class="collapse navbar-collapse">
+          <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav navbar-right">
               <button
                 type="button"
