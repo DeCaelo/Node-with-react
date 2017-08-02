@@ -10,14 +10,22 @@ class Header extends Component {
     switch (this.props.auth) {
       case null:
         return (
-          <li><a href="/auth/">Loading ...</a></li>
+          <li>
+            <a href="/auth/">Loading ...</a>
+          </li>
         );
       case false:
         return (
-          <li><a href="/auth/google">Login With Google</a></li>
+          <li>
+            <a href="/auth/google">Login With Google</a>
+          </li>
         );
       default:
-        return <li><a>Logout</a></li>;
+        return (
+          <li>
+            <a>Logout</a>
+          </li>
+        );
     }
   }
 
