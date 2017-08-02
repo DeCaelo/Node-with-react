@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 const button = {
   margin: '10px',
@@ -6,6 +7,7 @@ const button = {
 
 class Header extends Component {
   render() {
+    console.log(this.props);
     return (
       <nav className="navbar navbar-default">
         <div className="container-fluid">
@@ -29,4 +31,9 @@ class Header extends Component {
   }
 }
 
-export default Header;
+function mapStateToProps({ auth }) {
+  // auth from index.js reducers auth: state.auth
+  return { auth };
+}
+
+export default connect(mapStateToProps)(Header);
