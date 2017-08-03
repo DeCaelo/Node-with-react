@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const button = {
   margin: '10px',
@@ -34,7 +35,12 @@ class Header extends Component {
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand">Emaily</a>
+            <Link
+              to={this.props.auth ? '/surveys' : '/'}
+              className="navbar-brand"
+            >
+              Emaily
+            </Link>
           </div>
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav navbar-right">
