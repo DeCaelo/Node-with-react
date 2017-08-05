@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Payments from './Payments';
 
-const button = {
-  margin: '10px',
-};
-
 class Header extends Component {
   renderContent() {
     switch (this.props.auth) {
@@ -24,8 +20,8 @@ class Header extends Component {
         );
       default:
         return [
-          <li><Payments /></li>,
-          <li>
+          <li key="1"><Payments /></li>,
+          <li key="2">
             <a href="/api/logout">Logout</a>
           </li>
         ];
@@ -46,13 +42,7 @@ class Header extends Component {
           </div>
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav navbar-right">
-              <button
-                type="button"
-                className="btn btn-default navbar-btn"
-                style={button}
-              >
                 {this.renderContent()}
-              </button>
             </ul>
           </div>
         </div>
