@@ -13,7 +13,8 @@
     "deploy": "git push origin master && git push heroku master && heroku open",
     "prettier": "prettier --single-quote --print-width 80 --trailing-comma all --write 'src/**/*.js'",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false heroku npm install --prefix client && npm run build --prefix client"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
