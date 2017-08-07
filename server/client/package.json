@@ -11,8 +11,7 @@
     }
   },
   "devDependencies": {
-    "prettier": "^1.5.3",
-    "react-scripts": "1.0.10"
+    "prettier": "^1.5.3"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -23,7 +22,8 @@
     "react-router-dom": "^4.1.2",
     "react-stripe-checkout": "^2.6.3",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "react-scripts": "1.0.10"
   },
   "scripts": {
     "start": "react-scripts start",
