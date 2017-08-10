@@ -7,6 +7,7 @@ const keys = require('../config/keys');
 // this require is always before the services/passport
 // MongooseError: Schema hasn't been registered for model "users"
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI);
