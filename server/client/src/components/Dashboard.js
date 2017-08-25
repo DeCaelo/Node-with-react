@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -17,9 +18,11 @@ const Dashboard = () => {
   return (
     <div>
       Dashboard
-      <Button type="button" className="btn btn-danger btn-circle btn-lg">
-        <i className="glyphicon glyphicon-plus" />
-      </Button>
+      <Link to="/surveys/new">
+        <Button type="button" className="btn btn-danger btn-circle btn-lg">
+          <i className="glyphicon glyphicon-plus" />
+        </Button>
+      </Link>
     </div>
   );
 };
