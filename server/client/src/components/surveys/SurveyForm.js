@@ -1,8 +1,9 @@
 // SurveyForm shows a form for a user to add input
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import SurveyField from './SurveyField';
+import { FormGroup, Form, Col, Button, ControlLabel, FormControl } from 'react-bootstrap';
 
 const FIELDS = [
   { label: 'Survey Title', name: 'title' },
@@ -13,15 +14,18 @@ const FIELDS = [
 
 class SurveyForm extends Component {
   renderFields() {
-    return _.map(FIELDS, ({ label, name }) => {
+    return _.map(FIELDS, ({ label, name, text }) => {
       return (
-        <Field
-          key={name}
-          component={SurveyField}
-          type={text}
-          label={label}
-          name={name}
-        />
+        <Form horizontal>
+          <FormGroup>
+            <Col componentClass={ControlLabel} sm={2}>
+              {label}
+            </Col>
+            <Col sm={8}>
+              <FormControl type={text} />
+            </Col>
+          </FormGroup>
+        </Form>
       );
     });
   }
@@ -30,7 +34,13 @@ class SurveyForm extends Component {
     return (
       <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
         {this.renderFields()}
-        <button type="submit">Submit</button>
+        <FormGroup>
+          <Col smOffset={2} sm={10}>
+            <Button type="submit">
+                Submit
+            </Button>
+          </Col>
+        </FormGroup>
       </form>
     );
   }
