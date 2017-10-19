@@ -32,16 +32,18 @@ class SurveyForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
-        {this.renderFields()}
-        <FormGroup>
-          <Col smOffset={2} sm={10}>
-            <Button type="submit">
-                Submit
-            </Button>
-          </Col>
-        </FormGroup>
-      </form>
+      <Form horizontal>
+        <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+          {this.renderFields()}
+          <FormGroup>
+            <Col smOffset={2} sm={10}>
+              <Button type="submit">
+                  Submit
+              </Button>
+            </Col>
+          </FormGroup>
+        </form>
+      </Form>
     );
   }
 }

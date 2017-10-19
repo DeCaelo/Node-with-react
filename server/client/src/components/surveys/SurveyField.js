@@ -1,4 +1,4 @@
-// SurveyField contains logic to render a single lable & text input
+// SurveyField contains logic to render a single label & text input
 import React from 'react';
 
 export default ({ input, label }) => {
