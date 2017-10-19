@@ -1,49 +1,51 @@
 // SurveyForm shows a form for a user to add input
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 import SurveyField from './SurveyField';
-import { FormGroup, Form, Col, Button, ControlLabel, FormControl } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { FormGroup, Col, Button } from 'react-bootstrap';
 
 const FIELDS = [
   { label: 'Survey Title', name: 'title' },
   { label: 'Subject Line', name: 'subject' },
   { label: 'Email Body', name: 'body' },
-  { label: 'Recipient Lidt', name: 'emails' },
+  { label: 'Recipient List', name: 'emails' },
 ];
 
 class SurveyForm extends Component {
   renderFields() {
-    return _.map(FIELDS, ({ label, name, text }) => {
+    return _.map(FIELDS, ({ label, text, name }) => {
       return (
-        <Form horizontal>
-          <FormGroup>
-            <Col componentClass={ControlLabel} sm={2}>
-              {label}
-            </Col>
-            <Col sm={8}>
-              <FormControl type={text} />
-            </Col>
-          </FormGroup>
-        </Form>
+        <Field
+          key={name}
+          component={SurveyField}
+          type={text}
+          label={label}
+          name={name}
+        />
       );
     });
   }
 
   render() {
     return (
-      <Form horizontal>
-        <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
-          {this.renderFields()}
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Button type="submit">
-                  Submit
-              </Button>
-            </Col>
-          </FormGroup>
-        </form>
-      </Form>
+      <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+        {this.renderFields()}
+        <FormGroup>
+          <Col smOffset={2} sm={4}>
+            <Link to="/surveys" className="btn btn-danger">
+              Cancel
+            </Link>
+          </Col>
+          <Col smOffset={2} sm={4}>
+            <Button type="submit">
+              Next
+              <i className="glyphicon glyphicon-chevron-right" />
+            </Button>
+          </Col>
+        </FormGroup>
+      </form>
     );
   }
 }
