@@ -29,20 +29,23 @@ class SurveyForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+      <form
+        class="form-horizontal"
+        onSubmit={this.props.handleSubmit(values => console.log(values))}
+      >
         {this.renderFields()}
         <div className="form-group">
-          <div className='col-sm-2'>
+          <div className="col-sm-2">
             <Link to="/surveys" className="btn btn-danger">
               Cancel
             </Link>
           </div>
           <div className="form-group">
             <div className="col-sm-2 col-sm-offset-2">
-            <button type="submit" className="btn btn-primary">
-              Next
-              <i className="glyphicon glyphicon-chevron-right" />
-            </button>
+              <button type="submit" className="btn btn-primary">
+                Next
+                <i className="glyphicon glyphicon-chevron-right" />
+              </button>
             </div>
           </div>
         </div>

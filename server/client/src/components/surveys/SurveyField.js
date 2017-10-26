@@ -9,7 +9,7 @@ export default ({ input, label }) => {
           {label}
         </label>
         <div className="col-sm-7">
-          <input {...input} />
+          <input {...input} class="form-control" />
         </div>
       </div>
     </form>
