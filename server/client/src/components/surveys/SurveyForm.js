@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import SurveyField from './SurveyField';
 import { Link } from 'react-router-dom';
-import { FormGroup, Col, Button } from 'react-bootstrap';
 
 const FIELDS = [
   { label: 'Survey Title', name: 'title' },
@@ -32,19 +31,23 @@ class SurveyForm extends Component {
     return (
       <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
         {this.renderFields()}
-        <FormGroup>
-          <Col smOffset={2} sm={4}>
-            <Link to="/surveys" className="btn btn-danger">
-              Cancel
-            </Link>
-          </Col>
-          <Col smOffset={2} sm={4}>
-            <Button type="submit">
+        <div className="form-group">
+          <div className="form-group">
+            <div className='col-sm-2'>
+              <Link to="/surveys" className="btn btn-danger">
+                Cancel
+              </Link>
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-2 col-sm-offset-2">
+            <button type="submit">
               Next
               <i className="glyphicon glyphicon-chevron-right" />
-            </Button>
-          </Col>
-        </FormGroup>
+            </button>
+            </div>
+          </div>
+        </div>
       </form>
     );
   }
