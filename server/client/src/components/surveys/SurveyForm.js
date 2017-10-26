@@ -32,16 +32,14 @@ class SurveyForm extends Component {
       <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
         {this.renderFields()}
         <div className="form-group">
-          <div className="form-group">
-            <div className='col-sm-2'>
-              <Link to="/surveys" className="btn btn-danger">
-                Cancel
-              </Link>
-            </div>
+          <div className='col-sm-2'>
+            <Link to="/surveys" className="btn btn-danger">
+              Cancel
+            </Link>
           </div>
           <div className="form-group">
             <div className="col-sm-2 col-sm-offset-2">
-            <button type="submit">
+            <button type="submit" className="btn btn-primary">
               Next
               <i className="glyphicon glyphicon-chevron-right" />
             </button>
