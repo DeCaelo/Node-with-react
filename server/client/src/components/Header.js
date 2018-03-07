@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Payments from './Payments';
+import styled from 'styled-components';
+
+const Nav = styled.nav`background-color: #1d2028;`;
 
 class Header extends Component {
   renderContent() {
@@ -35,23 +38,19 @@ class Header extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-default">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            <Link
-              to={this.props.auth ? '/surveys' : '/'}
-              className="navbar-brand"
-            >
-              Emaily
-            </Link>
-          </div>
-          <div className="collapse navbar-collapse">
-            <ul className="nav navbar-nav navbar-right">
-              {this.renderContent()}
-            </ul>
-          </div>
+      <Nav>
+        <div className="nav-wrapper">
+          <Link
+            to={this.props.auth ? '/surveys' : '/'}
+            className="left brand-logo">
+            Emaily
+          </Link>
+
+          <ul className="right">
+            {this.renderContent()}
+          </ul>
         </div>
-      </nav>
+      </Nav>
     );
   }
 }
