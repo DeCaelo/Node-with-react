@@ -30,25 +30,16 @@ class SurveyForm extends Component {
   render() {
     return (
       <form
-        class="form-horizontal"
-        onSubmit={this.props.handleSubmit(values => console.log(values))}
-      >
+        className="container"
+        onSubmit={this.props.handleSubmit(values => console.log(values))}>
         {this.renderFields()}
-        <div className="form-group">
-          <div className="col-sm-2">
-            <Link to="/surveys" className="btn btn-danger">
-              Cancel
-            </Link>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-2 col-sm-offset-2">
-              <button type="submit" className="btn btn-primary">
-                Next
-                <i className="glyphicon glyphicon-chevron-right" />
-              </button>
-            </div>
-          </div>
-        </div>
+        <Link to="/surveys" className="red btn-flat white-text">
+          Cancel
+        </Link>
+        <button type="submit" className="teal btn-flat right white-text">
+          Next
+          <i className="material-icons right">done</i>
+        </button>
       </form>
     );
   }

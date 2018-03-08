@@ -3,15 +3,9 @@ import React from 'react';
 
 export default ({ input, label }) => {
   return (
-    <form>
-      <div className="form-group">
-        <label className="col-sm-2 control-label">
-          {label}
-        </label>
-        <div className="col-sm-7">
-          <input {...input} class="form-control" />
-        </div>
-      </div>
-    </form>
+    <div>
+      <label>{label}</label>
+      <input {...input} />
+    </div>
   );
 };
