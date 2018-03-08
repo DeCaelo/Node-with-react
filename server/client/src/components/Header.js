@@ -4,17 +4,15 @@ import { Link } from 'react-router-dom';
 import Payments from './Payments';
 import styled from 'styled-components';
 
-const Nav = styled.nav`background-color: #1d2028;`;
+const Nav = styled.nav`
+  background-color: #1d2028;
+`;
 
 class Header extends Component {
   renderContent() {
     switch (this.props.auth) {
       case null:
-        return (
-          <li>
-            <a href="/auth/">Loading ...</a>
-          </li>
-        );
+        return;
       case false:
         return (
           <li>
@@ -23,10 +21,10 @@ class Header extends Component {
         );
       default:
         return [
-          <li key="1" style={{ margin: '10px 10px' }}>
+          <li key="1">
             <Payments />
           </li>,
-          <li key="3" style={{ margin: '15px 10px' }}>
+          <li key="3" style={{ margin: '0 10px' }}>
             Credits: {this.props.auth.credits}
           </li>,
           <li key="2">
@@ -46,9 +44,7 @@ class Header extends Component {
             Emaily
           </Link>
 
-          <ul className="right">
-            {this.renderContent()}
-          </ul>
+          <ul className="right">{this.renderContent()}</ul>
         </div>
       </Nav>
     );
