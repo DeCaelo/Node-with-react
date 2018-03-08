@@ -6,10 +6,26 @@ import SurveyField from './SurveyField';
 import { Link } from 'react-router-dom';
 
 const FIELDS = [
-  { label: 'Survey Title', name: 'title' },
-  { label: 'Subject Line', name: 'subject' },
-  { label: 'Email Body', name: 'body' },
-  { label: 'Recipient List', name: 'emails' },
+  {
+    label: 'Survey Title',
+    name: 'title',
+    noValueError: 'You must provide a survey title',
+  },
+  {
+    label: 'Subject Line',
+    name: 'subject',
+    noValueError: 'You must provide a survey subject',
+  },
+  {
+    label: 'Email Body',
+    name: 'body',
+    noValueError: 'You must provide a survey body',
+  },
+  {
+    label: 'Recipient List',
+    name: 'emails',
+    noValueError: 'You must provide a correct email',
+  },
 ];
 
 class SurveyForm extends Component {
@@ -31,6 +47,7 @@ class SurveyForm extends Component {
     return (
       <form
         className="container"
+        style={{ marginTop: '100px' }}
         onSubmit={this.props.handleSubmit(values => console.log(values))}>
         {this.renderFields()}
         <Link to="/surveys" className="red btn-flat white-text">
@@ -48,9 +65,11 @@ class SurveyForm extends Component {
 function validate(values) {
   const errors = {};
 
-  if (!values.title) {
-    errors.title = 'You must provide a title';
-  }
+  _.each(FIELDS, ({ name, noValueError }) => {
+    if (!values[name]) {
+      errors[name] = noValueError;
+    }
+  });
 
   return errors;
 }
