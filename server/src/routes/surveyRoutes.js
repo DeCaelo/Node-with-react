@@ -15,13 +15,23 @@ module.exports = app => {
   });
 
   app.post('/api/surveys/webhooks', (req, res) => {
-    const events = _.map(req.body, event => {
+    const events = _.map(req.body, ({ email, url }) => {
       // Extract the path from the URL
-      const pathname = new URL(event.url).pathname;
+      const pathname = new URL(url).pathname;
       // Extract the survey ID and the 'choice yes or no
       const p = new Path('/api/surveys/:surveyId/:choice');
-      console.log(p.test(pathname));
+      // console.log(p.test(pathname)); { surveyId: '5aa296cc2667785e283d0c16', choice: 'yes' }
+      const match = p.test(pathname);
+      if (match) {
+        return {
+          email,
+          surveyId: match.surveyId,
+          choice: match.choice,
+        };
+      }
     });
+
+    console.log(events); // [ { email: 'ludo.mentalworks@gmail.com',surveyId: '5aa296cc2667785e283d0c16',choice: 'yes' } ]
   });
 
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
