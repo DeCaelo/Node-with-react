@@ -30,8 +30,14 @@ module.exports = app => {
         };
       }
     });
+    // console.log(events);
+    // [ { email: 'ludo.mentalworks@gmail.com',surveyId: '5aa296cc2667785e283d0c16',choice: 'yes' } ]
 
-    console.log(events); // [ { email: 'ludo.mentalworks@gmail.com',surveyId: '5aa296cc2667785e283d0c16',choice: 'yes' } ]
+    // Remove the elements that are 'undefined'
+    const compactEvents = _.compact(events);
+    const uniqueEvents = _.uniqBy(compactEvents, 'email', 'surveyId');
+    console.log(uniqueEvents);
+    res.send({});
   });
 
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
