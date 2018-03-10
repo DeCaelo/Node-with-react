@@ -11,11 +11,14 @@
     "start": "node src/index.js",
     "server": "nodemon src/index.js",
     "deploy": "git push origin master && git push heroku master && heroku open",
-    "prettier": "prettier --single-quote --print-width 80 --trailing-comma all --write 'src/**/*.js'",
+    "prettier":
+      "prettier --single-quote --print-width 80 --trailing-comma all --write 'src/**/*.js'",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "webhook": "lt -p 5000 -s hklhkgjdsdbbtrtyu"
+    "dev":
+      "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
+    "heroku-postbuild":
+      "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "webhook": "./sendgrid_webhook.sh"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
